@@ -1,0 +1,48 @@
+{
+  "name": "freelance-invoice-preview",
+  "displayName": "Freelance Invoice Preview",
+  "description": "Preview and export a clean HTML invoice from a JSON file, right inside VS Code. Zero dependencies, no account, no telemetry.",
+  "version": "0.1.0",
+  "publisher": "kleogeos",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kleogeos/freelance-invoice-vscode"
+  },
+  "homepage": "https://kleogeos.github.io/freelancer-tools/",
+  "bugs": {
+    "url": "https://github.com/kleogeos/freelance-invoice-vscode/issues"
+  },
+  "categories": ["Other"],
+  "keywords": ["invoice", "freelance", "freelancer", "billing", "json"],
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "activationEvents": [],
+  "main": "./extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "freelanceInvoicePreview.preview",
+        "title": "Freelance Invoice: Preview from JSON",
+        "icon": "$(eye)"
+      },
+      {
+        "command": "freelanceInvoicePreview.exportHtml",
+        "title": "Freelance Invoice: Export as HTML"
+      }
+    ],
+    "menus": {
+      "editor/title": [
+        {
+          "command": "freelanceInvoicePreview.preview",
+          "when": "resourceLangId == json",
+          "group": "navigation"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "test": "node test.js"
+  }
+}
